@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+double radio() {
+	double a;
+	do {
+		cout << "Escribir el radio del círculo";
+		cin >> a;
+	} while (a > 0);
+	return a;
+}
+double area(double a) {
+	double b = a * a * 3.14;
+	return b;
+}
+double perimetro(double a) {
+	double c = a * 3.14 * 2;
+	return c;
+}
+int main(){
+	double a =radio();
+	cout << "El valor del area es: " << area(a)<<endl;
+	cout << "El valor del perimetro es: " << perimetro(a) << endl;
+	return 0;
+}
