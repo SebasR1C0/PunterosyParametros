@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+const double PI = 3.1415;
+void areayperi(double a, double &area, double &perimetro) {
+	area = PI * a * a;
+	perimetro = 2 * PI * a;
+}
+int main(){
+	double a, area, perimetro;
+	cout << "Ingresa el radio: ";
+	cin >> a;
+	areayperi(a, area, perimetro);
+	cout << "El valor del area del circulo es: " << area << endl;
+	cout << "El valor del perimetro del circulo es: " << perimetro << endl;
+	return 0;
+}
