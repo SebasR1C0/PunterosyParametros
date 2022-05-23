@@ -1,0 +1,49 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+double longitud(double xa, double xb, double ya, double yb) {
+	double a = pow(pow(xb - xa, 2) * pow(yb - ya, 2), 1 / 2);
+	return a;
+}
+int estriangulo(double l1, double l2, double l3) {
+	int si = 0;
+	if (l1 - l2 <= l3 && l1 + l2 >= l3)si++;
+	if (l1 - l3 <= l2 && l1 + l3 >= l2)si++;
+	if (l3 - l2 <= l1 && l3 + l2 >= l1)si++;
+	return si;
+}
+double semi(double l1, double l2, double l3) {
+	double s = (l1 + l2 + l3) / 2;
+	return s;
+}
+double area(double l1, double l2, double l3, double s) {
+	double a = pow(s * (s - l1) * (s - l2) * (s - l3), 1 / 2);
+	return a;
+}
+int main() {
+	double xa, xb, xc, ya, yb, yc, si, l1,l2,l3, semip, areat;
+	cout << "Ingrese la coordenada del primer vertice: " << endl;
+	cin >> xa >> ya;
+	cout << "Ingrese la coordenada del segundo vertice: " << endl;
+	cin >> xb >> yb;
+	cout << "Ingrese la coordenada del tercer vertice: " << endl;
+	cin >> xc >> yc;
+	l1 = longitud(xa, xb, ya, yb);
+	l2 = longitud(xb, xc, yb, yc);
+	l3 = longitud(xc, xa, yc, ya);
+	si = estriangulo(l1,l2,l3);
+	if (si == 3) {
+		cout << "Es un triangulo" << endl;
+	}
+	else {
+		cout << "No es un triangulo" << endl;
+	}
+	while (si == 3) {
+		semip = semi(l1, l2, l3);
+		cout << "El semiperimetro es: " << semip << endl;
+		areat = area(l1, l2, l3, semip);
+		cout << "El area es: " << areat << endl;
+		break;
+	}
+	return 0;
+}
