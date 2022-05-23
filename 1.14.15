@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+double abc(int a) {
+	double multi = 1;
+	for (int i = 1; i <= a; i++) {
+		multi *= i;
+	}
+	return multi;
+}
+int main(){
+	double a = 3.00, b = 1.00, final=0.00, c;
+	int n, k = a - b;
+	do {
+		cout << "Ingrese el valor de N : ";
+		cin >> n;
+	} while (n < 1);
+	for (int i = 1; i <= n; i++) {
+		c = abc(a) / (abc(b) * abc(k));
+		final = final + c /abc(i);
+		a += 2;
+		b++;
+	}
+	cout << "El valor es: " << final << endl;
+	return 0;
+}
