@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main(){
+	int pri = 0;
+	for (int i = 2; i <= 71; i++) {
+		for (int j = 1; j <= i; j++) {
+			if (i % j == 0)pri++;
+		}
+			if (pri == 2) {
+				cout << i << "\t";
+			} pri = 0;
+	}
+	return 0;
+}
