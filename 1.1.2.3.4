@@ -1,0 +1,41 @@
+#include <iostream>
+#include <windows.h>
+using namespace std;
+void rectangulo(int a, int h, char z, int x, int y) {
+	for (int i = 0; i < h; i++) {
+		for (int j = 0; j < a; j++) {
+			HANDLE salida = GetStdHandle(STD_OUTPUT_HANDLE);
+			COORD c;
+			c.X = x+j;
+			c.Y = y+i;
+			SetConsoleCursorPosition(salida, c);
+			cout << z;
+		} cout << endl;
+	}
+}
+int main(){
+	int x,y,a, h;
+	char z;
+	do {
+		cout << "Ingrese la coordenada de x: ";
+		cin >> x;
+	} while (x < 0);
+	do {
+		cout << "Ingrese la coordenada de y: ";
+		cin >> y;
+	} while (y < 0);
+	cout << "Ingrese su caracter: ";
+	cin >> z;
+	do {
+		cout << "Ingrese el ancho del rectangulo: ";
+		cin >> a;
+	} while (a < 1);
+	do {
+		cout << "Ingrese la altura del rectangulo: ";
+		cin >> h;
+	} while (h < 1);
+	HANDLE salida = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(salida, FOREGROUND_RED);
+	rectangulo(a, h, z,x,y);
+	return 0;
+}
