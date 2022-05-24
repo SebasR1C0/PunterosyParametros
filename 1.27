@@ -2,18 +2,16 @@
 using namespace std;
 void primos(int n) {
 	int pri = 0, abc = 0;
-	while (abc <= n) {
-		for (int i = 2; i <= 100000; i++) {
-			for (int j = 1; j <= i; j++) {
-				if (i % j == 0)pri++;
-				if (pri == 2) {
-					cout << i << "\t";
-					abc++;
-				} pri = 0;
-				if (abc == n) break;
-			}if (abc == n) break;
+	for (int i = 2; abc < n; i++) {
+		for (int j = 1; j <= i; j++) {
+			if (i % j == 0) pri++;
 		}
+		if (pri == 2) {
+			abc++;
+			cout << i << "\t";
+		} pri = 0;
 	}
+	
 }
 int main() {
 	int n;
