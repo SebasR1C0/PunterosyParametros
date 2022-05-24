@@ -1,0 +1,28 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+int ndivi(int a){
+	int divi = 0;
+	for (int i = 1; i <= a; i++) {
+		if (a % i == 0) divi++;
+	}
+	return divi;
+}
+void esprimo(int divi) {
+	if (divi == 2) {
+		cout << "Es primo " << endl;
+	}
+	else {
+		cout << "No es primo " << endl;
+	}
+}
+int main() {
+	int a, n , m;
+	do {
+		cout << "Ingrese el numero: ";
+		cin >> a;
+	} while (a < 1);
+	int divi = ndivi(a);
+	esprimo(divi);
+	return 0;
+}
