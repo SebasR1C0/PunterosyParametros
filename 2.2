@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+char menu() {
+	char a;
+	cout << "		MENU		" << endl;
+	cout << "		====		" << endl;
+	cout << "A) Sumar 2 Numeros Complejos" << endl;
+	cout << "B) Restar 2 Numeros Complejos" << endl;
+	cout << "X) Fin del programa" << endl;
+	cout << endl;
+	cout << "Ingresa la letra: ";
+	cin >> a;
+	a = toupper(a);
+	while (a != 'A' && a != 'B' && a != 'X') {
+		cout << "Letra incorrecto" << endl;
+		cout << "Ingresa la letra: ";
+		cin >> a;
+		a = toupper(a);
+	}
+	return a;
+}
+void suma() {
+	int a1, a2, b1, b2;
+	cout << endl;
+	cout << "Numero 1: " << endl;
+	cout << "Parte Real: ";
+	cin >> a1;
+	cout << "Parte Imaginaria: ";
+	cin >> b1;
+	cout << endl;
+	cout << "Numero 2" << endl;
+	cout << "Parte Real: ";
+	cin >> a2;
+	cout << "Parte Imaginaria: ";
+	cin >> b2;
+	cout << "(" << a1 << "+" << b1 << "i) + (" << a2 << "+" << b2 << "i) = (";
+	cout << a1 + a2 << "+" << b1 + b2 << "i)" << endl;
+}
+void resta() {
+	int a1, a2, b1, b2;
+	cout << endl;
+	cout << "Numero 1: " << endl;
+	cout << "Parte Real: ";
+	cin >> a1;
+	cout << "Parte Imaginaria:";
+	cin >> b1;
+	cout << endl;
+	cout << "Numero 2: " << endl;
+	cout << "Parte Real: ";
+	cin >> a2;
+	cout << "Parte Imaginaria: ";
+	cin >> b2;
+	cout << "(" << a1 << "-" << b1 << "i) - (" << a2 << "-" << b2 << "i) = (";
+	cout << a1 - a2 << "-" << b1 - b2 << "i)" << endl;
+}
+int main() {
+	char a = menu();
+	while (a != 'X') {
+		if(a == 'A')suma();
+		if (a == 'B')resta();		
+		if (a == 'a') { cout << "Fin del programa" << endl; }
+		cout << endl;
+		if (a == 'X') break;
+		char a = menu();
+	}
+	return 0;
+}
