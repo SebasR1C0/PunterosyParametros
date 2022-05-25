@@ -56,9 +56,9 @@ void resta() {
 int main() {
 	char a = menu();
 	while (a != 'X') {
-		if(a == 'A')suma();
-		if (a == 'B')resta();		
-		if (a == 'a') { cout << "Fin del programa" << endl; }
+		if(a == 'A'){ suma(); }
+		if (a == 'B') { resta(); }		
+		if (a == 'X') { cout << "Fin del programa" << endl; }
 		cout << endl;
 		if (a == 'X') break;
 		a = menu();
