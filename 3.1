@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+int menu() {
+	int a;
+	cout << "		MENU		" << endl;
+	cout << "		====		" << endl;
+	cout << "1. Calcular el seno" << endl;
+	cout << "2. Hallar el enesimo termino" << endl;
+	cout << "3. Fin" << endl;
+	cout << endl;
+	cout << "Ingresa el numero: ";
+	cin >> a;
+	cout << endl;
+	while (a > 3 || a<1) {
+		cout << "Numero incorrecto" << endl;
+		cout << "Ingresa el numero: ";
+		cin >> a;
+		cout << endl;
+	}
+	return a;
+}
+int fac(int a) {
+	int multi = 1;
+	for (int i = 1; i <= a; i++) {
+		multi *= i;
+	}
+	return multi;
+}
+void seno() {
+	int x,n, suma = 0, ab = -1, ex = 1;
+	do {
+		cout << "Ingrese el numero de terminos: ";
+		cin >> n;
+	} while (n < 1);
+	do {
+		cout << "Ingrese el valor de x: ";
+		cin >> x;
+	} while (x < 0);
+	for (int i = 1; i <= n; i++) {
+		ab *= -1;
+		suma += ab * pow(x, ex) / fac(ex);
+		ex += 2;
+	}
+	cout << "El valor del seno es: " << suma << endl;;
+}
+void enesimo() {
+	int n,a,b;
+	do {
+		cout << "Ingrese el valor de N: ";
+		cin >> n;
+	} while (n < 0);
+	do {
+		cout << "Ingrese el numero: ";
+		cin >> a;
+	} while (a < 1);
+	for (int i = 0; i <= n; i++) {
+		b = a % 10;
+		a /= 10;
+	}
+	cout << "El n-esimo digito es: ";
+	if (b == 0) {
+		cout << "-1" << endl;
+	}
+	else {
+		cout << b << endl;
+	}
+}
+int main() {
+	int a = menu();
+	while (a != 3) {
+		if (a == 1) { seno(); }
+		if (a == 2) { enesimo(); }
+		if (a == 3) { cout << "Fin del programa" << endl; }
+		cout << endl;
+		if (a == 3) break;
+		a = menu();
+	}
+	return 0;
+}
