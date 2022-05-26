@@ -11,18 +11,20 @@ char menu() {
 	cout << "Ingresa la letra: ";
 	cin >> a;
 	a = toupper(a);
+	cout << endl;
 	while (a != 'A' && a != 'B' && a != 'X') {
 		cout << "Letra incorrecto" << endl;
 		cout << "Ingresa la letra: ";
 		cin >> a;
 		a = toupper(a);
+		cout << endl;
 	}
 	return a;
 }
 void suma() {
 	int a1, a2, b1, b2;
 	cout << endl;
-	cout << "Numero 1: " << endl;
+	cout << "Numero 1" << endl;
 	cout << "Parte Real: ";
 	cin >> a1;
 	cout << "Parte Imaginaria: ";
@@ -39,13 +41,13 @@ void suma() {
 void resta() {
 	int a1, a2, b1, b2;
 	cout << endl;
-	cout << "Numero 1: " << endl;
+	cout << "Numero 1 " << endl;
 	cout << "Parte Real: ";
 	cin >> a1;
 	cout << "Parte Imaginaria:";
 	cin >> b1;
 	cout << endl;
-	cout << "Numero 2: " << endl;
+	cout << "Numero 2 " << endl;
 	cout << "Parte Real: ";
 	cin >> a2;
 	cout << "Parte Imaginaria: ";
@@ -56,11 +58,14 @@ void resta() {
 int main() {
 	char a = menu();
 	while (a != 'X') {
-		if(a == 'A'){ suma(); }
-		if (a == 'B') { resta(); }		
-		if (a == 'X') { cout << "Fin del programa" << endl; }
+		if (a == 'A') {
+			cout << "Opcion A " << endl;
+			suma(); }
+		if (a == 'B') {
+			cout << "Opcion B " << endl;
+			resta(); }
 		cout << endl;
-		if (a == 'X') break;
+		system("pause");
 		a = menu();
 	}
 	return 0;
