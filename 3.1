@@ -11,7 +11,7 @@ int menu() {
 	cout << "Ingresa el numero: ";
 	cin >> a;
 	cout << endl;
-	while (a > 3 || a<1) {
+	while (a > 3 || a < 1) {
 		cout << "Numero incorrecto" << endl;
 		cout << "Ingresa el numero: ";
 		cin >> a;
@@ -27,7 +27,7 @@ int fac(int a) {
 	return multi;
 }
 void seno() {
-	int x,n, suma = 0, ab = -1, ex = 1;
+	int x, n, suma = 0, ab = -1, ex = 1;
 	do {
 		cout << "Ingrese el numero de terminos: ";
 		cin >> n;
@@ -44,7 +44,7 @@ void seno() {
 	cout << "El valor del seno es: " << suma << endl;;
 }
 void enesimo() {
-	int n,a,b;
+	int n, a, b;
 	do {
 		cout << "Ingrese el valor de N: ";
 		cin >> n;
@@ -70,9 +70,9 @@ int main() {
 	while (a != 3) {
 		if (a == 1) { seno(); }
 		if (a == 2) { enesimo(); }
-		if (a == 3) { cout << "Fin del programa" << endl; }
 		cout << endl;
-		if (a == 3) break;
+		system("pause");
+		cout << endl;
 		a = menu();
 	}
 	return 0;
