@@ -67,13 +67,16 @@ void enesimo() {
 }
 int main() {
 	int a = menu();
-	while (a != 3) {
-		if (a == 1) { seno(); }
-		if (a == 2) { enesimo(); }
+	do {
+		switch (a){ 
+		case 1: seno();
+		       break;
+		case 2:  enesimo(); 
+		}
 		cout << endl;
 		system("pause");
 		cout << endl;
 		a = menu();
-	}
+	} while ( a != 3);
 	return 0;
 }
