@@ -1,6 +1,22 @@
 #include <iostream>
-#include <math.h>
 using namespace std;
+int menu() {
+	int a;
+	cout << "		MENU PRINCIPAL		" << endl;
+	cout << "1) Determinar el factorial del numero" << endl;
+	cout << "2) Calcular el valor de e a la a" << endl;
+	cout << "3) Imprime rombo" << endl;
+	cout << "4) Fin" << endl;
+	cout << "Ingrese el numero: ";
+	cin >> a;
+	cout << endl;
+	while (a > 4 || a < 1) {
+		cout << "Numero incorrecto, elija otro numero " << endl;
+		cin >> a;
+		cout << endl;
+	}
+	return a;
+}
 int factorial(int n) {
 	int multi = 1;
 	for (int i = 1; i <= n; i++) {
@@ -9,7 +25,7 @@ int factorial(int n) {
 	return multi;
 }
 double valor(int n, int k) {
-	int abc = 1, multi  = 1;
+	int abc = 1, multi = 1;
 	for (int i = 1; i <= k; i++) {
 		if (k == 0) {
 			abc = 1;
@@ -45,32 +61,27 @@ void rombo(int n) {
 	}
 }
 int main() {
-	int a, n, k;
-	cout << "		MENU PRINCIPAL		" << endl;
-	cout << "1) Determinar el factorial del numero" << endl;
-	cout << "2) Calcular el valor de e a la a" << endl;
-	cout << "3) Imprime rombo" << endl;
-	cout << "4) Fin" << endl;
-	cin >> a;
-	while (a > 4 || a < 1) {
-		cout << "Numero incorrecto, elija otro numero " << endl;
-		cin >> a;
-	}
-	switch (a) {
-	case 1: cout << "Ingresar el valor de n: ";
-		cin >> n;
-		cout << "El factorial es: " << factorial(n) << endl;
-		break;
-	case 2: cout << "Ingresar el valor de a: ";
-		cin >> n;
-		cout << "Ingresar el valor de k: ";
-		cin >> k;
-		cout << "El valor es: " << valor(n, k) << endl;
-		break;
-	case 3:cout << "Ingresar el valor de n: ";
-		cin >> n;
-		rombo(n);
-		break;
+	int n, k;
+	int a = menu();
+	while (a != 4) {
+		switch (a) {
+		case 1: cout << "Ingresar el valor de n: ";
+			cin >> n;
+			cout << "El factorial es: " << factorial(n) << endl;
+			break;
+		case 2: cout << "Ingresar el valor de a: ";
+			cin >> n;
+			cout << "Ingresar el valor de k: ";
+			cin >> k;
+			cout << "El valor es: " << valor(n, k) << endl;
+			break;
+		case 3:cout << "Ingresar el valor de n: ";
+			cin >> n;
+			cout << endl;
+			rombo(n);
+		}
+		cout << endl;
+		a = menu();
 	}
 	return 0;
 }
