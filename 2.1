@@ -65,17 +65,20 @@ int main() {
 	int a = menu();
 	while (a != 4) {
 		switch (a) {
-		case 1: cout << "Ingresar el valor de n: ";
+		case 1: cout << "Opcion 1" << endl;
+			cout << "Ingresar el valor de n: ";
 			cin >> n;
 			cout << "El factorial es: " << factorial(n) << endl;
 			break;
-		case 2: cout << "Ingresar el valor de a: ";
+		case 2: cout << "Opcion 2" << endl;
+			cout << "Ingresar el valor de a: ";
 			cin >> n;
 			cout << "Ingresar el valor de k: ";
 			cin >> k;
 			cout << "El valor es: " << valor(n, k) << endl;
 			break;
-		case 3:cout << "Ingresar el valor de n: ";
+		case 3:cout << "Opcion 3" << endl;
+			cout << "Ingresar el valor de n: ";
 			cin >> n;
 			cout << endl;
 			rombo(n);
