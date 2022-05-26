@@ -25,8 +25,7 @@ int factorial(int n) {
 	return multi;
 }
 double valor(double n, int k) {
-	int abc = 1;
-	double multi = n;
+	double abc = 1, multi = n;
 	for (int i = 1; i <= k; i++) {
 		abc += multi / factorial(i);
 		multi *= n;
