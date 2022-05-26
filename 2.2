@@ -57,17 +57,20 @@ void resta() {
 }
 int main() {
 	char a = menu();
-	while (a != 'X') {
-		if (a == 'A') {
+	do {
+	switch (a){
+		case 'A':
 			cout << "Opcion A " << endl;
-			suma(); }
-		if (a == 'B') {
+			suma();
+			break;
+		case 'B': 
 			cout << "Opcion B " << endl;
-			resta(); }
+			resta();
+			}
 		cout << endl;
 		system("pause");
 		cout << endl;
-		a = menu();
-	}
+		char a = menu();
+	} while ( a != 'x');
 	return 0;
 }
