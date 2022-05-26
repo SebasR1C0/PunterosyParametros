@@ -24,13 +24,13 @@ int factorial(int n) {
 	}
 	return multi;
 }
-double valor(int n, int k) {
-	int abc = 1, multi = 1;
+double valor(double n, int k) {
+	int abc = 1, multi = n;
 	for (int i = 1; i <= k; i++) {
 		if (k == 0) {
 			abc = 1;
 		}
-		abc += n / factorial(i);
+		abc += multi / factorial(i);
 		multi *= n;
 	}
 	return abc;
@@ -61,7 +61,8 @@ void rombo(int n) {
 	}
 }
 int main() {
-	int n, k;
+	int k;
+	double n;
 	int a = menu();
 	while (a != 4) {
 		switch (a) {
