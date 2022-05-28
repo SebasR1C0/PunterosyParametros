@@ -44,11 +44,11 @@ void seno() {
 	cout << "El valor del seno es: " << suma << endl;;
 }
 void enesimo() {
-	int n, a, b;
+	int n, a, b, invalido = 1e8;
 	do {
 		cout << "Ingrese el valor de N: ";
 		cin >> n;
-	} while (n < -99999999 || n > 99999999);
+	} while (n <= -invalido || n >= invalido );
 	do {
 		cout << "Ingrese el numero: ";
 		cin >> a;
