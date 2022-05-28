@@ -31,7 +31,7 @@ void seno() {
 	do {
 		cout << "Ingrese el numero de terminos: ";
 		cin >> n;
-	} while (n < -99999999 || n > 99999999);
+	} while (n < 1);
 	do {
 		cout << "Ingrese el valor de x: ";
 		cin >> x;
@@ -48,7 +48,7 @@ void enesimo() {
 	do {
 		cout << "Ingrese el valor de N: ";
 		cin >> n;
-	} while (n < 0);
+	} while (n < -99999999 || n > 99999999);
 	do {
 		cout << "Ingrese el numero: ";
 		cin >> a;
@@ -58,7 +58,10 @@ void enesimo() {
 		a /= 10;
 	}
 	cout << "El n-esimo digito es: ";
-	if (b == 0) {
+	if ( n == 0 ) {
+	cout << "0" << endl;
+	}
+	else if (b == 0) {
 		cout << "-1" << endl;
 	}
 	else {
