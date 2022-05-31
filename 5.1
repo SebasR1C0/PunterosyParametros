@@ -1,0 +1,98 @@
+#include <iostream>
+using namespace std;
+int menu() {
+	int a;
+	do {
+		cout << "Menu de opciones" << endl;
+		cout << "1. Calcular la serie" << endl;
+		cout << "2. N-esimo termino de Fibonacci" << endl;
+		cout << "3. Grafico" << endl;
+		cout << "4. Fin" << endl;
+		cout << "Ingrese la opcion: ";
+		cin >> a;
+		cout << endl;
+	} while (a < 1 || a>4);
+	return a;
+}
+int repe(int a) {
+	int multi = 1;
+	for (int i = 1; i <= a; i++) {
+		multi *= i;
+	}
+	return multi;
+}
+void serie(){
+	int n, multi = 1;
+	double suma = 0,x, y;
+	do {
+		cout << "Ingrese el valor de N: ";
+		cin >> n;
+	} while (n > 30 || 1 > n);
+	do {
+		cout << "Ingrese el valor de x: ";
+		cin >> x;
+	} while (x > 4 || 1 > x);
+	for (int i = 1; i <= n; i++) {
+		y = i * 2;
+		suma += pow(x, y) / repe(y);
+		multi *= -1;
+	}
+	cout << "Resultado: " << suma << endl;
+}
+void fibonacci() {
+	int t1 = 1, t2 = 1, tu , b = 0, n;
+	do {
+		cout << "Ingrese el valor de N: ";
+		cin >> n;
+	} while (n < 1);
+	for (int i = 3; i <= n;i++) {
+		tu = t1 + t2;
+		b = tu;
+		t1 = t2;
+		t2 = tu;
+	}
+	cout << "N-esimo termino de Fibonacci es : " << b << endl;	
+}
+void espacio(int b) {
+	for (int a = 1; a <= b*2-1; a++) {
+		cout << " ";
+	}
+}
+void grafico() {
+	int n;
+	do {
+		cout << "Ingrese el numero de filas: ";
+		cin >> n;
+	} while (n > 10 || 1 > n);
+	int a = n;
+	for (int i = 1; i <= n; i++) {
+		espacio(a);
+		a--;
+		for (int j = 1; j <= i*2-1; j++) {
+			if (j % 2 == 0) {
+				cout << "  ";
+			}
+			else {
+				cout << j << " ";
+			}
+		}
+		cout << endl;
+	}
+}
+int main() {
+	int numero = menu();
+	do {
+		switch (numero) {
+		case 1: serie();
+			break;
+		case 2: fibonacci();
+			break;
+		case 3:; grafico();
+		}
+		cout << endl;
+		system("pause");
+		cout << endl;
+		numero = menu();
+	} while (numero != 4);
+	return 0;
+}
