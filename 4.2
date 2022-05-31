@@ -1,0 +1,105 @@
+#include <iostream>
+using namespace std;
+int menu() {
+	int a;
+	do {
+		cout << "Menu de opciones" << endl;
+		cout << "1. Calcular PI" << endl;
+		cout << "2. Grafico" << endl;
+		cout << "3. Fin" << endl;
+		cout << "Ingrese la opcion: ";
+		cin >> a;
+		cout << endl;
+	} while (a < 1 || a>3);
+	return a;
+}
+int numerador(int n) {
+	int nu = 2;
+	for (int i = 2; i <= n; i++) {
+		if (i % 2 == 1) {
+			nu +=  2;
+		}
+		else {
+			nu *= 1;
+		}
+	}
+	return nu;
+}
+int denominador(int n) {
+	int de = 1;
+	for (int i = 2; i <= n; i++) {
+		if (i % 2 == 0) {
+			de += 2;
+		}
+		else {
+			de *= 1;
+		}
+	}
+	return de;
+}
+void serie(){
+	int n;
+	double suma = 4.00;
+	do {
+		cout << "Ingrese el valor de N: ";
+		cin >> n;
+	} while (n > 10 || 1 > n);
+	for (int i = 2; i <= n; i++) {
+		suma = suma * numerador(i) / denominador(i);
+	}
+	cout << "Resultado: " << suma << endl;
+}
+void espacio(int i) {
+	for (int a = 1; a < (2 * i - 2)*2 -1; a++) {
+		cout << " ";
+	}
+}
+void grafico() {
+	int n;
+	do {
+		cout << "Ingrese N: ";
+		cin >> n;
+	} while (n > 10 || 1 > n);
+	cout << endl;
+	for (int i = n; i >= 1; i--) {
+		for (int j = n; j >= i; j--) {
+			cout << j << " ";
+		}
+		espacio(i);
+		for (int a = i; a <= n; a++) {
+			if (a == 1) {
+				cout << "";
+			}
+			else { cout << a << " "; }
+		}
+		cout << endl;
+	}
+	for (int i = 2; i <= n; i++) {
+		for (int j = n; j >= i; j--) {
+			cout << j << " ";
+		}
+		espacio(i);
+		for (int a = i; a <= n; a++) {
+			if (a == 1) {
+				cout << "";
+			}
+			else { cout << a<< " "; }
+		}
+		cout << endl;
+	}
+}
+int main() {
+	int numero = menu();
+	do {
+		switch (numero) {
+		case 1: serie();
+			break;
+		case 2:; grafico();
+		}
+		cout << endl;
+		system("pause");
+		cout << endl;
+		numero = menu();
+	} while (numero != 3);
+	return 0;
+}
