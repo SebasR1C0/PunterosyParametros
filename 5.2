@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+double generar(int datos[]) {
+	srand(time(NULL));
+	int suma = 0;
+	double promedio;
+	for (int i = 0; i < 40; i++) {
+		datos[i] = rand() % 100;
+		suma += datos[i];
+		cout << "La nota del alumno " << i + 1 << " es: " << datos[i] << endl;
+	}
+	promedio = suma / 40.00;
+	return promedio;
+}
+void bajo(double promedio, int datos [40]) {
+	for (int i = 0; i < 40; i++) {
+		if (promedio > datos[i]) {
+			cout << "El alumno " << i + 1 << " con nota " << datos[i] << endl;
+		}
+	}
+}
+void menor(int datos[40]) {
+	int nota = 100, conta = 0;
+	for (int i = 0; i < 40; i++) {
+		if (nota > datos[i]) {
+			nota = datos[i];
+		}
+	}
+	for (int j = 0; j < 40; j++) {
+		if (nota == datos[j]) {
+			conta++;
+		}
+	}
+	cout << "La nota mas baja es: " << nota << endl;
+	cout << "Hay " << conta << " alumnos con la nota mas baja" << endl;
+}
+int main() {
+	int* datos = new int[40];
+	double promedio = generar(datos);
+	cout << endl;
+	cout << "Los alumnos debajo del promedio(" << promedio<< ") son: " << endl;
+	bajo(promedio, datos);
+	cout << endl;
+	menor(datos);
+	return 0;
+}
