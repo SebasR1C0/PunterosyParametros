@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+void generar(char datos[]) {
+	srand(time(NULL));
+	for (int i = 0; i < 40; i++) {
+		datos[i] = (rand() % 3) + 'A';
+		cout << "La calificacion de la persona " << i + 1 << " es: " << datos[i] << endl;
+	}
+}
+void puntajes(char datos[40], int& a, int& b, int& c) {
+	for (int i = 0; i < 40; i++) {
+		if (datos[i] == 'A') a++;
+		if (datos[i] == 'B') b++;
+		if (datos[i] == 'C') c++;
+	}
+	cout << a << " personas calificaron con A" << endl;
+	cout << b << " personas calificaron con B" << endl;
+	cout << c << " personas calificaron con C" << endl;
+}
+void aprobado(int& a) {
+	double promedio = a / 40.00;
+	if (promedio >= 0.5) {
+		cout << "El producto fue aprobado" << endl;
+	}
+	else {
+		cout << "El producto fue no aprobado" << endl;
+	}
+}
+int main() {
+	int a = 0, b = 0, c = 0;
+	char* datos = new char[40];
+	generar(datos);
+	cout << endl;
+	puntajes(datos,a,b,c);
+	cout << endl;
+	aprobado(a);
+	delete[]datos;
+	return 0;
+}
