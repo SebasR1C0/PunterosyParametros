@@ -1,0 +1,104 @@
+#include <iostream>
+using namespace std;
+int menu() {
+	int a;
+	do {
+		cout << "Menu de opciones" << endl;
+		cout << "1. Calcular la serie" << endl;
+		cout << "2. Primos" << endl;
+		cout << "3. Grafico" << endl;
+		cout << "4. Fin" << endl;
+		cout << "Ingrese la opcion: ";
+		cin >> a;
+		cout << endl;
+	} while (a < 1 || a>4);
+	return a;
+}
+int repe(int a) {
+	int multi = 1;
+	for (int i = 1; i <= a; i++) {
+		multi *= i;
+	}
+	return multi;
+}
+void serie() {
+	int n, multi = -1, abc = 3;
+	double suma = -1, y;
+	do {
+		cout << "Ingrese el valor de N: ";
+		cin >> n;
+	} while (n > 25 || 1 > n);
+	do {
+		cout << "Ingrese el valor de x: ";
+		cin >> y;
+	} while (y > 5.5 || 1 > y);
+	for (int i = 2; i <= n; i++) {
+		multi *= -1;
+		suma += multi * abc * pow(y, abc - 1) / repe(abc - 1);
+		abc += 2;
+	}
+	cout << "Resultado: " << suma << endl;
+}
+void primos() {
+	int n, divi = 0;
+	do {
+		cout << "Ingrese el valor de N: ";
+		cin >> n;
+	} while (n < 1);
+	cout << "Los siguientes numeros son primos: ";
+	for (int i = 2; i <= n; i++) {
+		for (int j = 1; j <= i; j++) {
+			if (i % j == 0) divi++;
+			}
+		if (i == 2) {
+			cout << "2";
+		}
+		else if (divi == 2) {
+			cout << ", " << i;
+		}
+		divi = 0;
+	}
+	cout << endl;
+}
+void espacio(int a) {
+	for (int i = 1; i <= 2 * a - 1; i++) {
+		cout << " ";
+	}
+}
+void grafico() {
+	int n;
+	do {
+		cout << "Ingrese el valor de N: ";
+		cin >> n;
+	} while (n > 9 || 1 > 2);
+	cout << endl;
+	for (int i = n; i >= 1; i--) {
+		espacio(i);
+		for (int j = i; j <= n; j++) {
+			if (i<=j) {
+				cout << i << " ";
+			}
+			else {
+				cout << "  ";
+			}
+		}
+		cout << endl;
+	}
+}
+int main() {
+	int numero = menu();
+	do {
+		switch (numero) {
+		case 1: serie();
+			break;
+		case 2: primos();
+			break;
+		case 3:; grafico();
+		}
+		cout << endl;
+		system("pause");
+		cout << endl;
+		numero = menu();
+	} while (numero != 4);
+	return 0;
+}
