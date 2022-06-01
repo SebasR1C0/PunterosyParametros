@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+int menu() {
+	int a;
+	do {
+		cout << "Menu de opciones" << endl;
+		cout << "1. Calcular la serie" << endl;
+		cout << "2. Grafico" << endl;
+		cout << "3. Fin" << endl;
+		cout << "Ingrese la opcion: ";
+		cin >> a;
+		cout << endl;
+	} while (a < 1 || a>3);
+	return a;
+}
+void serie() {
+	double suma = 0, multi = 1;
+	int n;
+	do {
+		cout << "El valor de N es: ";
+		cin >> n;
+	} while (n < 1 || n > 20);
+	for (int i = 1; i <= n; i++) {
+		suma += multi * pow(3,i)/pow(2,i-1);
+		multi *= -1;
+	}
+	cout << "El resultado de la serie es: " << suma << endl;
+}
+void espacio(int b) {
+	for (int a = 1; a <= 2 * b - 1; a++) {
+		cout << " ";
+	}
+}
+void grafico() {
+	int n, a;
+	a = 1;
+	do {
+		cout << "El valor de N es: ";
+		cin >> n;
+	} while (n < 1 || n > 9);
+	cout << endl;
+	for (int i = n; i >= 1; i--) {
+		espacio(a);
+		a++;
+		for (int j = 1; j <= i; j++) {
+			cout << j << " ";
+		}
+		for (int c = i - 1; c >= 1; c--) {
+			cout << c << " ";
+		}
+		cout << endl;
+	}
+}
+int main() {
+	int numero = menu();
+	do {
+		switch (numero) {
+		case 1: serie();
+			break;
+		case 2:; grafico();
+		}
+		cout << endl;
+		system("pause");
+		cout << endl;
+		numero = menu();
+	} while (numero != 3);
+	return 0;
+}
