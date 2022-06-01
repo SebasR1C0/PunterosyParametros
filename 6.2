@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+void areavolumen(double radio) {
+	double a = 4 * 3.14 * pow(radio, 2);
+	double b = 4 * 3.14 * pow(radio, 3) / 3;
+	cout << "El valor del area total es: " << a << endl;
+	cout << "El valor del volumen es: " << b << endl;
+}
+int main() {
+	double radio;
+	do{
+		cout << "Ingrese el valor del radio: ";
+		cin >> radio;
+	} while (radio <= 0);
+	areavolumen(radio);
+	return 0;
+}
