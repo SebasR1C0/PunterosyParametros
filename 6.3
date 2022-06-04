@@ -8,50 +8,32 @@ void generar(int datos[]) {
 		cout << "La nota de metologia de la maestra " << i + 1 << " es: " << datos[i] << endl;
 	}
 }
-void puntajes(int datos[30], int &a, int &b, int &c, int &d) {
-	for (int i = 0; i < 30; i++) {
-		if (datos[i] == 1) d++;
-		if (datos[i] == 2) c++;
-		if (datos[i] == 3) b++;
-		if (datos[i] == 4) a++;
-	}
-}
-void lista (int datos[30]) {
-	int a = 0, b = 0, c = 0, d = 0;
-	puntajes(datos, a, b, c, d);
-	cout << "Hay " << d << " maestras con nota 1 " << endl;
-	cout << "Hay " << c << " maestras con nota 2 " << endl;
-	cout << "Hay " << b << " maestras con nota 3 " << endl;
-	cout << "Hay " << a << " maestras con nota 4 " << endl;
-}
 void mayor(int datos[30]) {
-	int a = 0, b = 0, c = 0, d = 0, m=-1;
-	puntajes(datos, a, b, c, d);
-	int* maximo = new int[4]{ a,b,c,d };
-	for (int i = 0; i < 4; i++) {
+	int  m = -1;
+	int* maximo = new int[5]{};
+	for (int i = 0; i < 30; i++) {
+		maximo[datos[i]]++;
+	}
+	cout << "Hay " << maximo[1] << " maestras con nota 1 " << endl;
+	cout << "Hay " << maximo[2] << " maestras con nota 2 " << endl;
+	cout << "Hay " << maximo[3] << " maestras con nota 3 " << endl;
+	cout << "Hay " << maximo[4] << " maestras con nota 4 " << endl;
+	cout << endl;
+	for (int i = 1; i < 5; i++) {
 		if (m < maximo[i]) {
-			m = maximo [i];
+			m = maximo[i];
 		}
 	}
-	if (m == a) {
-		cout << "La mayor votacion fue de 4 puntos" << endl;
-	}
-	if (m == b) {
-		cout << "La mayor votacion fue de 3 puntos " << endl;
-	}
-	if (m == c) {
-		cout << "La mayor votacion fue de 2 puntos " << endl;
-	}
-	if (m == d) {
-		cout << "La mayor votacion fue de 1 punto " << endl;
+	for (int i = 0; i < 4; i++) {
+		if (m == maximo[i]) {
+			cout << "La mayor votacion fue de " << i << " puntos con "<< maximo[i] << endl;
+		}
 	}
 	delete[] maximo;
 }
 int main() {
 	int* datos = new int[30];
 	generar(datos);
-	cout << endl;
-	lista(datos);
 	cout << endl;
 	mayor(datos);
 	delete[]datos;
