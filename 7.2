@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
-void areavolumen(double arista) {
-	double a = pow(arista,2) * sqrt(3);
-	double b = sqrt(2) * pow(arista,3) / 12;
-	cout << "El valor del area es: " << a << endl;
-	cout << "El valor del volumen es: " << b << endl;
+void areavolumen(double arista, double &a, double &b) {
+	a = pow(arista,2) * sqrt(3);
+	b = sqrt(2) * pow(arista,3) / 12;
 }
 int main() {
-	double arista;
+	double arista, a, b;
 	do {
 		cout << "Ingrese el valor de la arista: ";
 		cin >> arista;
 	} while (arista <= 0);
-	areavolumen(arista);
+	areavolumen(arista, a ,b);
+	cout << "El valor del area es: " << a << endl;
+	cout << "El valor del volumen es: " << b << endl;
 	return 0;
 }
